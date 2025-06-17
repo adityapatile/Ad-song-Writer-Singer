@@ -3,16 +3,20 @@ import openai
 from dotenv import load_dotenv
 import os
 
-# Load environment variables
-load_dotenv()
+# Try to get API key from Streamlit secrets first, then fall back to environment variables
+api_key = st.secrets.get("OPENAI_API_KEY") or os.getenv("OPENAI_API_KEY")
 
-# Configure OpenAI
-openai.api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    st.error("OpenAI API key not found! Please add it to your Streamlit secrets or environment variables.")
+    st.stop()
+
+# Configure OpenAI client
+client = openai.OpenAI(api_key=api_key)
 
 def generate_ad(theme):
     """Generate an advertisement based on the theme."""
     try:
-        response = openai.chat.completions.create(
+        response = client.chat.completions.create(
             model="gpt-4",
             messages=[
                 {"role": "system", "content": "You are a creative advertising copywriter."},
@@ -26,7 +30,7 @@ def generate_ad(theme):
 def generate_song(theme):
     """Generate song lyrics based on the theme."""
     try:
-        response = openai.chat.completions.create(
+        response = client.chat.completions.create(
             model="gpt-4",
             messages=[
                 {"role": "system", "content": "You are a creative songwriter."},
