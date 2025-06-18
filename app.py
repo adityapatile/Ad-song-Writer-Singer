@@ -108,6 +108,7 @@ if theme:
                     st.session_state['current_song'] = song
                     song_container.write(song)
                 else:
+                    st.write(song)
                     st.error("Failed to generate song. Please try again with a different theme.")
             except Exception as e:
                 st.error(f"An unexpected error occurred: {str(e)}")
