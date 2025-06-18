@@ -5,7 +5,6 @@ import os
 import base64
 from io import BytesIO
 import requests
-from PIL import Image
 
 # Load environment variables
 load_dotenv()
