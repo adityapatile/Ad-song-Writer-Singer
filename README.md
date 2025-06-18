@@ -1,42 +1,38 @@
-# Ad & Song Generator
+# 🎵 AI Song Generator
 
-A Streamlit application that generates creative advertisements and songs based on a given theme using OpenAI's GPT-4 model.
+A Streamlit app that generates creative songs and voice recordings using OpenAI's GPT-4 and Text-to-Speech APIs.
 
 ## Features
 
-- Generate creative advertisements with headlines, main copy, and calls to action
-- Create original songs with verses, chorus, and bridge
-- Clean and intuitive user interface
-- Real-time generation using OpenAI's GPT-4 model
+- Generate creative songs based on any theme
+- Convert songs to voice recordings
+- Simple and intuitive user interface
 
 ## Setup
 
 1. Clone this repository
-2. Install the required dependencies:
+2. Install the required packages:
    ```bash
    pip install -r requirements.txt
    ```
-3. Create a `.env` file in the root directory and add your OpenAI API key:
-   ```
-   OPENAI_API_KEY=your_api_key_here
+3. Run the app:
+   ```bash
+   streamlit run app.py
    ```
 
 ## Usage
 
-1. Run the Streamlit app:
-   ```bash
-   streamlit run app.py
-   ```
-2. Open your web browser and navigate to the provided local URL (usually http://localhost:8501)
-3. Enter a theme in the text input field
-4. Click the "Generate Ad" or "Generate Song" buttons to create content
+1. Enter your OpenAI API key in the sidebar
+2. Enter a theme for your song
+3. Click "Generate Song" to create lyrics
+4. Click "Generate Voice Version" to create an audio recording
 
 ## Requirements
 
-- Python 3.7+
+- Python 3.8+
 - OpenAI API key
 - Internet connection
 
 ## Note
 
-Make sure to keep your OpenAI API key secure and never share it publicly. 
+This app requires an OpenAI API key to function. The key is stored only in your session and is not saved permanently. 
